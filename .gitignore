@@ -1,0 +1,14 @@
+.python-version
+/bin
+/.exafmm
+/include
+/lib
+/lib64
+/share
+/.pytest_cache
+/ecgi_tools.egg-info
+*.lprof
+*_pycache__
+/tests
+pyvenv.cfg
+/build
