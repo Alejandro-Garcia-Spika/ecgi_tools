@@ -2,6 +2,14 @@ import numpy as np
 import scipy as sp
 from scipy import sparse
 
+def activation_times(beat_matrix: np.ndarray, start=0, end=-1) -> np.ndarray:
+    grad = np.gradient(beat_matrix[:, start:end], axis=1)
+    M = beat_matrix.shape[0]
+    ats = np.empty(M, dtype=np.int32)
+    np.argmin(grad, axis=1, out=ats)
+    ats += start
+    return ats
+
 def neighbour_distance_matrix(nodes: np.ndarray, faces: np.ndarray) -> sp.sparse.coo_matrix:
     n, _ = nodes.shape
     m, _ = faces.shape
